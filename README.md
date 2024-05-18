@@ -18,7 +18,7 @@ Tên: Linh Nguyễn
 
 Tuổi: 15
 
-Trường học: Trường Trung học phổ thông Nguyễn Huệ, Hồ Chí Minh, Việt Nam
+Trường học: Trường Trung học phổ thông Bắc Thăng Long, Hà Nội, Việt Nam
 
 Bối cảnh: Linh sinh ra và lớn lên ở Hồ Chí Minh trong một gia đình yêu thích văn hóa và ngôn ngữ. Cha mẹ của cô là giáo viên tiếng Pháp.
 
