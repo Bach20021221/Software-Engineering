@@ -12,6 +12,8 @@ Nguyễn Duy Bách msv: 20021221
 
 Nguyễn Tuấn Anh msv: 20021219
 
+link drive báo cáo và video demo : https://drive.google.com/drive/folders/1wRoyhCJG2F8wA7IZIAAFejgI2HtcXcx6?fbclid=IwZXh0bgNhZW0CMTAAAR3_fflWAZrqVkVGv3VtrT1Oa8TuyM4sr4hqiluH6Z_UtGnUNCW6h0MskKs_aem_AUzouyBZlm3b0nvX3rtKCfk0Tj23VVvQ-eMofKxL7puqLOgXqNKLPTyymGyVRC1SnAnT18NL3iooA9K3NtXLtwXW
+
 Personas
 
 Tên: Linh Nguyễn
