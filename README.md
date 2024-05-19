@@ -1,4 +1,4 @@
-Tên dự án: Thiết kế ứng dụng dịch thuật.
+##Tên dự án: Thiết kế ứng dụng dịch thuật.
 
 Nhóm 22.
 
