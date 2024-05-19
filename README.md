@@ -14,6 +14,11 @@ Nguyễn Tuấn Anh msv: 20021219
 
 ## Link drive báo cáo và video demo : https://drive.google.com/drive/folders/1wRoyhCJG2F8wA7IZIAAFejgI2HtcXcx6?fbclid=IwZXh0bgNhZW0CMTAAAR3_fflWAZrqVkVGv3VtrT1Oa8TuyM4sr4hqiluH6Z_UtGnUNCW6h0MskKs_aem_AUzouyBZlm3b0nvX3rtKCfk0Tj23VVvQ-eMofKxL7puqLOgXqNKLPTyymGyVRC1SnAnT18NL3iooA9K3NtXLtwXW
 
+## Cách cài đặt:
+- Bấm vào đường dẫn  : https://github.com/Bach20021221/Software_engineering/releases/tag/Translate 
+- Chọn file có tên "net6.0-windows.rar" tải về và giải nén phần mềm
+![image](https://github.com/Bach20021221/Software_engineering/assets/162896868/826166e5-3acc-4b79-9a6e-474f2b9b71f4)
+(Yêu cầu máy tính cần phải có "runtimes" để có thể chạy phần mềm)
 ## Personas
 
 1.Tên: Linh Nguyễn
