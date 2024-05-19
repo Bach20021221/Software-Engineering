@@ -12,7 +12,7 @@ Nguyễn Duy Bách msv: 20021221
 
 Nguyễn Tuấn Anh msv: 20021219
 
-## Link drive báo cáo và video demo : [https://drive.google.com/drive/folders/1wRoyhCJG2F8wA7IZIAAFejgI2HtcXcx6?fbclid=IwZXh0bgNhZW0CMTAAAR3_fflWAZrqVkVGv3VtrT1Oa8TuyM4sr4hqiluH6Z_UtGnUNCW6h0MskKs_aem_AUzouyBZlm3b0nvX3rtKCfk0Tj23VVvQ-eMofKxL7puqLOgXqNKLPTyymGyVRC1SnAnT18NL3iooA9K3NtXLtwXW](https://drive.google.com/drive/folders/1s1XuBeE8ix7SZ24yYPYoAgYQitkBtUhW?fbclid=IwZXh0bgNhZW0CMTAAAR0mDJBTQm6NYs532aDdW1oS2ZQCntJrn0qJj0fs0N_IPuLsQdkVhCPQiEY_aem_AUNWOTQRSHH7ePBxFt0miRLY8BT8B-8KlfB8EO8xefZ0siAcEBu8TCCnqcW2e0ANgRh1FlSn2n6y9NLrqHfEO2aS)
+## Link drive báo cáo và video demo :(https://drive.google.com/drive/folders/1s1XuBeE8ix7SZ24yYPYoAgYQitkBtUhW?fbclid=IwZXh0bgNhZW0CMTAAAR0mDJBTQm6NYs532aDdW1oS2ZQCntJrn0qJj0fs0N_IPuLsQdkVhCPQiEY_aem_AUNWOTQRSHH7ePBxFt0miRLY8BT8B-8KlfB8EO8xefZ0siAcEBu8TCCnqcW2e0ANgRh1FlSn2n6y9NLrqHfEO2aS)
 
 ## Cách cài đặt:
 - Bấm vào đường dẫn  : https://github.com/Bach20021221/Software_engineering/releases/tag/Translate 
