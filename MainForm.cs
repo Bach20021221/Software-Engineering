@@ -8,13 +8,17 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Leaf.xNet;
 using Microsoft.CognitiveServices.Speech;
 using Newtonsoft.Json;
+using HtmlAgilityPack;
 
 namespace AzureMultiTranslator
 {
@@ -302,7 +306,19 @@ namespace AzureMultiTranslator
         private async void translateButton_Click(object sender, EventArgs e)
         {
             Enabled = false;
+            if (string.IsNullOrEmpty(sourceTextBox.Text))
+            {
+                MessageBox.Show("Chưa nhập Văn bản muốn dịch", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (string.IsNullOrEmpty(ComboBoxLanguage2.Text))
+            {
+                MessageBox.Show("Chưa nhập ngôn ngữ của văn bản", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             List<TranslatedTextRow> rowsToTranslate = Rows.Where(r => r.Translate).ToList();
+            if (rowsToTranslate.Count == 0)
+            {
+                MessageBox.Show("Chưa nhập ngôn ngữ muốn chuyển sang", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             int length = sourceTextBox.Text.Length;
             int rowsPerCall = Math.Max(1, length > 0 ? (int)Math.Min(maxCharsUpDown.Value / length, rowsToTranslate.Count) : rowsToTranslate.Count);
             try
@@ -422,7 +438,7 @@ namespace AzureMultiTranslator
         private void UpdateTranslateButton()
         {
             int length = sourceTextBox.Text.Length;
-            translateButton.Enabled = length > 0 && length <= 5000 ;
+            translateButton.Enabled = length > 0 && length <= 5000;
         }
 
         private void englishTextBox_TextChanged(object sender, EventArgs e)
@@ -622,11 +638,11 @@ namespace AzureMultiTranslator
         }
         private static async Task SynthesizeSpeechAsync(string text)
         {
-            // Thay YOUR_SUBSCRIPTION_KEY và YOUR_REGION bằng thông tin từ Azure Portal.
+            // Replace YOUR_SUBSCRIPTION_KEY and YOUR_REGION with your actual Azure subscription key and region.
             var config = SpeechConfig.FromSubscription("94ac6457bd7646bc8a3956823e541517", "southeastasia");
 
-            // Đặt giọng tiếng Việt của Hoài My
-            config.SpeechSynthesisVoiceName = "vi-VN-HoaiMyNeural";
+            // Set the voice to Yunyi Multilingual Mandarin
+            config.SpeechSynthesisVoiceName = "zh-CN-YunyiMultilingualNeural";
 
             using (var synthesizer = new SpeechSynthesizer(config))
             {
@@ -634,7 +650,7 @@ namespace AzureMultiTranslator
 
                 if (result.Reason == ResultReason.SynthesizingAudioCompleted)
                 {
-                    MessageBox.Show("Text-to-Speech hoàn tất!");
+                    MessageBox.Show("Text-to-Speech completed!");
                 }
                 else if (result.Reason == ResultReason.Canceled)
                 {
@@ -657,6 +673,87 @@ namespace AzureMultiTranslator
         private void lengthTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            string text = backTranslatedTextBox.Text;
+            await SynthesizeSpeechAsync(text);
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            Enabled = false;
+           
+            try
+            {
+                var selectedLanguage = (KeyValuePair<string, string>)ComboBoxLanguage2.SelectedItem;
+                string languageCode = selectedLanguage.Key;
+                string requestBody = "";
+                if (string.IsNullOrEmpty(textBox1.Text))
+                {
+                    MessageBox.Show("Chưa nhập web muốn dịch", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                string url = textBox1.Text;
+                using (var request = new HttpRequest())
+                {
+                    // Gửi yêu cầu GET để lấy nội dung HTML
+                    HttpResponse response = request.Get(url);
+                    string htmlContent = response.ToString();
+
+                    // Phân tích cú pháp HTML và lấy văn bản thuần túy
+                    var doc = new HtmlAgilityPack.HtmlDocument();
+                    doc.LoadHtml(htmlContent);
+                     requestBody = doc.DocumentNode.SelectSingleNode("//body").InnerText;
+                    if (requestBody.Length > 5000)
+                    {
+                        requestBody = requestBody.Substring(0, 5000);
+                    }
+
+                }
+            
+                List<TranslatedTextRow> rowsToTranslate = Rows.Where(r => r.Translate).ToList();
+                int length = requestBody.Length;
+                int rowsPerCall = Math.Max(1, length > 0 ? (int)Math.Min(maxCharsUpDown.Value / length, rowsToTranslate.Count) : rowsToTranslate.Count);
+
+                for (int i = 0; i < rowsToTranslate.Count; i += rowsPerCall)
+                {
+                    List<TranslatedTextRow> rowsThisCall = rowsToTranslate.Skip(i).Take(rowsPerCall).ToList();
+
+
+                    //await Translator.DetectLanguageAsync();
+
+                    string[] languages = rowsThisCall.Select(r => r.Language).ToArray();
+                    List<string> translations = await Translator.Translate(languageCode,
+                        languages, requestBody, htmlCheckBox.Checked);
+                    for (int j = 0; j < translations.Count; j++)
+                    {
+                        rowsThisCall[j].TranslatedText = translations[j];
+                    }
+                }
+
+                await BackTranslate();
+            }
+            catch (AzureException ex)
+            {
+                ShowAzureException(ex);
+            }
+            catch (UnrecognizedResponseException ex)
+            {
+                ShowUnrecognizedResponseException(ex);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"Unknown exception: {ex.Message}");
+            }
+
+            if (translationGrid.SelectedRows.Count > 0)
+            {
+                translationGrid_CellContentClick(translationGrid,
+                   new DataGridViewCellEventArgs(0, translationGrid.SelectedRows[0].Index));
+            }
+
+            Enabled = true;
         }
     }
 }

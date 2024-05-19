@@ -35,6 +35,9 @@
             sourceTextBox = new System.Windows.Forms.TextBox();
             mainSplitContainer = new System.Windows.Forms.SplitContainer();
             panel2 = new System.Windows.Forms.Panel();
+            button3 = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            textBox1 = new System.Windows.Forms.TextBox();
             lengthTextBox = new System.Windows.Forms.TextBox();
             lengthLabel = new System.Windows.Forms.Label();
             htmlCheckBox = new System.Windows.Forms.CheckBox();
@@ -53,6 +56,7 @@
             translationsTextBoxesSplitContainer = new System.Windows.Forms.SplitContainer();
             translatedTextBox = new System.Windows.Forms.TextBox();
             translatedLabel = new System.Windows.Forms.Label();
+            button2 = new System.Windows.Forms.Button();
             backTranslatedTextBox = new System.Windows.Forms.TextBox();
             backTranslatedLabel = new System.Windows.Forms.Label();
             panel1 = new System.Windows.Forms.Panel();
@@ -106,7 +110,7 @@
             // ComboBoxLanguage
             // 
             ComboBoxLanguage.FormattingEnabled = true;
-            ComboBoxLanguage.Location = new System.Drawing.Point(527, 8);
+            ComboBoxLanguage.Location = new System.Drawing.Point(527, 7);
             ComboBoxLanguage.Name = "ComboBoxLanguage";
             ComboBoxLanguage.Size = new System.Drawing.Size(121, 23);
             ComboBoxLanguage.TabIndex = 8;
@@ -117,7 +121,7 @@
             button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            button1.Location = new System.Drawing.Point(299, 26);
+            button1.Location = new System.Drawing.Point(302, 17);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(56, 36);
             button1.TabIndex = 2;
@@ -128,12 +132,12 @@
             // sourceTextBox
             // 
             sourceTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            sourceTextBox.Location = new System.Drawing.Point(0, 37);
+            sourceTextBox.Location = new System.Drawing.Point(0, 69);
             sourceTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             sourceTextBox.Multiline = true;
             sourceTextBox.Name = "sourceTextBox";
             sourceTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            sourceTextBox.Size = new System.Drawing.Size(379, 600);
+            sourceTextBox.Size = new System.Drawing.Size(379, 568);
             sourceTextBox.TabIndex = 0;
             sourceTextBox.TextChanged += englishTextBox_TextChanged;
             // 
@@ -161,6 +165,9 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(button3);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(textBox1);
             panel2.Controls.Add(ComboBoxLanguage2);
             panel2.Controls.Add(lengthTextBox);
             panel2.Controls.Add(lengthLabel);
@@ -170,8 +177,35 @@
             panel2.Location = new System.Drawing.Point(0, 0);
             panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(379, 37);
+            panel2.Size = new System.Drawing.Size(379, 69);
             panel2.TabIndex = 2;
+            // 
+            // button3
+            // 
+            button3.Location = new System.Drawing.Point(278, 34);
+            button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(88, 27);
+            button3.TabIndex = 12;
+            button3.Text = "Translate web";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(11, 42);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(31, 15);
+            label1.TabIndex = 11;
+            label1.Text = "Web";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new System.Drawing.Point(74, 37);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(178, 23);
+            textBox1.TabIndex = 10;
             // 
             // lengthTextBox
             // 
@@ -200,8 +234,6 @@
             // 
             htmlCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             htmlCheckBox.AutoSize = true;
-            htmlCheckBox.Checked = true;
-            htmlCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             htmlCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", settingsBindingSource, "Html", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             htmlCheckBox.Location = new System.Drawing.Point(194, 9);
             htmlCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -349,6 +381,7 @@
             // 
             // translationsTextBoxesSplitContainer.Panel2
             // 
+            translationsTextBoxesSplitContainer.Panel2.Controls.Add(button2);
             translationsTextBoxesSplitContainer.Panel2.Controls.Add(backTranslatedTextBox);
             translationsTextBoxesSplitContainer.Panel2.Controls.Add(backTranslatedLabel);
             translationsTextBoxesSplitContainer.Size = new System.Drawing.Size(764, 393);
@@ -378,6 +411,19 @@
             translatedLabel.Size = new System.Drawing.Size(60, 15);
             translatedLabel.TabIndex = 1;
             translatedLabel.Text = "Translated";
+            // 
+            // button2
+            // 
+            button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            button2.Location = new System.Drawing.Point(303, 19);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(56, 36);
+            button2.TabIndex = 3;
+            button2.Text = "Voice";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // backTranslatedTextBox
             // 
@@ -447,7 +493,7 @@
             // 
             upButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             upButton.AutoSize = true;
-            upButton.Location = new System.Drawing.Point(465, 5);
+            upButton.Location = new System.Drawing.Point(390, 4);
             upButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             upButton.Name = "upButton";
             upButton.Size = new System.Drawing.Size(29, 29);
@@ -460,7 +506,7 @@
             // 
             downButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             downButton.AutoSize = true;
-            downButton.Location = new System.Drawing.Point(502, 5);
+            downButton.Location = new System.Drawing.Point(425, 3);
             downButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             downButton.Name = "downButton";
             downButton.Size = new System.Drawing.Size(29, 29);
@@ -473,7 +519,7 @@
             // 
             sortButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             sortButton.AutoSize = true;
-            sortButton.Location = new System.Drawing.Point(536, 5);
+            sortButton.Location = new System.Drawing.Point(461, 4);
             sortButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             sortButton.Name = "sortButton";
             sortButton.Size = new System.Drawing.Size(44, 29);
@@ -702,7 +748,10 @@
         private System.Windows.Forms.ComboBox ComboBoxLanguage;
         private System.Windows.Forms.ComboBox ComboBoxLanguage2;
         private System.Windows.Forms.Button button1;
-
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
