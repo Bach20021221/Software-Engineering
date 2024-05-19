@@ -1,4 +1,4 @@
-##Tên dự án: Thiết kế ứng dụng dịch thuật.
+## Tên dự án: Thiết kế ứng dụng dịch thuật.
 
 Nhóm 22.
 
@@ -12,9 +12,9 @@ Nguyễn Duy Bách msv: 20021221
 
 Nguyễn Tuấn Anh msv: 20021219
 
-Link drive báo cáo và video demo : https://drive.google.com/drive/folders/1wRoyhCJG2F8wA7IZIAAFejgI2HtcXcx6?fbclid=IwZXh0bgNhZW0CMTAAAR3_fflWAZrqVkVGv3VtrT1Oa8TuyM4sr4hqiluH6Z_UtGnUNCW6h0MskKs_aem_AUzouyBZlm3b0nvX3rtKCfk0Tj23VVvQ-eMofKxL7puqLOgXqNKLPTyymGyVRC1SnAnT18NL3iooA9K3NtXLtwXW
+## Link drive báo cáo và video demo : https://drive.google.com/drive/folders/1wRoyhCJG2F8wA7IZIAAFejgI2HtcXcx6?fbclid=IwZXh0bgNhZW0CMTAAAR3_fflWAZrqVkVGv3VtrT1Oa8TuyM4sr4hqiluH6Z_UtGnUNCW6h0MskKs_aem_AUzouyBZlm3b0nvX3rtKCfk0Tj23VVvQ-eMofKxL7puqLOgXqNKLPTyymGyVRC1SnAnT18NL3iooA9K3NtXLtwXW
 
-Personas
+## Personas
 
 1.Tên: Linh Nguyễn
 
