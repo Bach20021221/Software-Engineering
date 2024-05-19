@@ -23,7 +23,7 @@ Nguyễn Tuấn Anh msv: 20021219
 
 1.Tên: Linh Nguyễn
 
-Tuổi: 15
+Tuổi: 16
 
 Trường học: Trường Trung học phổ thông Bắc Thăng Long, Hà Nội, Việt Nam
 
